@@ -40,11 +40,11 @@ namespace Dogs.Controllers
             return Ok(existingItem);
         }
         [HttpPost]
-        public void CreateDog(Dog dog)
+        public void CreateDog([FromBody]Dog dog)
         {
             _repository.CreateDog(dog);           
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void DeleteDog(int id)
         {
             var dog = _repository.GetDog(id);
